@@ -8,7 +8,12 @@
 *
 */
 
-define('QI_VERSION', '1.1.7-RC1');
+define('QI_VERSION', '1.1.8-RC1');
 
-define('QI_PHPBB_VERSION', '3.0.10'); // Version for the latest phpBB
-define('AUTOMOD_VERSION', '1.0.0.1'); // Version for the latest AutoMOD
+// Chunk sizes
+define('CHUNK_POST', 1000);
+define('CHUNK_TOPIC', 2000);
+define('CHUNK_USER', 5000);
+
+// Cookies set by QI
+define('QI_PROFILE_COOKIE', 'qi_profile');	// Cookie with the latest used profile name as payload.

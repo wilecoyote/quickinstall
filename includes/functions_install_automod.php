@@ -24,7 +24,7 @@ class automod_installer
 	public static function install_automod($board_dir, $make_writable)
 	{
 		global $quickinstall_path, $phpbb_root_path, $phpEx;
-		global $qi_config, $user, $db;
+		global $settings, $user, $db;
 
 		// The name of the mod to be displayed during installation.
 		$mod_name = 'AUTOMOD';
@@ -44,7 +44,7 @@ class automod_installer
 		}
 		else if (file_exists($quickinstall_path . 'sources/automod/upload/includes'))
 		{
-			// They copied to complete upload directory to automod instead of its contents.
+			// They copied the complete upload directory to automod instead of its contents.
 			$automod_path = $quickinstall_path . 'sources/automod/upload/';
 		}
 		else
@@ -68,13 +68,7 @@ class automod_installer
 		$GLOBALS['lang'] = &$user->lang;
 		global $lang;
 
-		// Newer AutoMOD uses includes/automod/
-		if (file_exists($phpbb_root_path . 'includes/automod/functions_mods.' . $phpEx))
-		{
-			include($phpbb_root_path . 'includes/automod/functions_mods.' . $phpEx);
-			include($phpbb_root_path . 'includes/automod/constants_automod.' . $phpEx);
-		}
-		else if (file_exists($phpbb_root_path . 'includes/functions_mods.' . $phpEx))
+		if (file_exists($phpbb_root_path . 'includes/functions_mods.' . $phpEx))
 		{
 			include($phpbb_root_path . 'includes/functions_mods.' . $phpEx);
 		}
@@ -84,14 +78,9 @@ class automod_installer
 		}
 
 		require($phpbb_root_path . 'install/install_versions.' . $phpEx);
-
 		require($phpbb_root_path . 'includes/functions_convert.' . $phpEx);
 		require($phpbb_root_path . 'includes/functions_transfer.' . $phpEx);
-
 		require($phpbb_root_path . 'umil/umil_frontend.' . $phpEx);
-
-		global $current_version;
-		$current_version = $qi_config['automod_version'];
 
 		// add some language entries to prevent notices
 		$user->lang += array(
@@ -104,15 +93,17 @@ class automod_installer
 		// We will sort the actions to prevent issues from mod authors incorrectly listing the version numbers
 		uksort($versions, 'version_compare');
 
-		// Find the current version to install
-		$current_version = '0.0.0';
-		foreach ($versions as $version => $actions)
-		{
-			$current_version = $version;
-		}
+		// Find the current version to install.
+		// The last key has the latest version number.
+		global $current_version;
+		end($versions);
+		$current_version = key($versions);
 
 		$action = 'install';
 		$version_select = $current_version;
+
+		global $dbms;
+		$dbms = $settings->get_config('dbms');
 
 		$umil->run_actions($action, $versions, $version_config_name, $version_select);
 

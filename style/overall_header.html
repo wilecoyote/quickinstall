@@ -42,7 +42,7 @@ function marklist(id, name, state)
 	}
 }
 
-<!-- IF S_IN_SETTINGS -->
+<!-- IF S_SETTINGS -->
 /**
 * Bind the correct event handlers to a given input field
 * Bug #62574
@@ -81,10 +81,104 @@ function bind_62574_handlers(fieldname)
 }
 <!-- ENDIF -->
 
+<!-- IF S_MAIN -->
+function validate_fields()
+{
+	var error = false;
+	var color = "LightCoral";
+
+	var input_dbname = document.getElementById("dbname");
+	if (input_dbname)
+	{
+		if (input_dbname.value == "")
+		{
+			document.getElementById("span-dbname").style.display = "inline";
+			error = true;
+		}
+		else
+		{
+			document.getElementById("span-dbname").style.display = "none";
+		}
+	}
+
+	var input_dbuser = document.getElementById("dbuser");
+	if (input_dbuser)
+	{
+		if (input_dbuser.value == "")
+		{
+			document.getElementById("span-dbuser").style.display = "inline";
+			error = true;
+		}
+		else
+		{
+			document.getElementById("span-dbuser").style.display = "none";
+		}
+	}
+
+	var input_dbpasswd = document.getElementById("dbpasswd");
+	if (input_dbpasswd)
+	{
+		if (input_dbpasswd.value == "")
+		{
+			document.getElementById("span-dbpasswd").style.display = "inline";
+			error = true;
+		}
+		else
+		{
+			document.getElementById("span-dbpasswd").style.display = "none";
+		}
+	}
+
+	var input_admin_name = document.getElementById("admin_name");
+	if (input_admin_name)
+	{
+		if (input_admin_name.value == "")
+		{
+			document.getElementById("span-admin_name").style.display = "inline";
+			error = true;
+		}
+		else
+		{
+			document.getElementById("span-admin_name").style.display = "none";
+		}
+	}
+
+	var input_admin_pass = document.getElementById("admin_pass");
+	if (input_admin_pass)
+	{
+		if (input_admin_pass.value == "")
+		{
+			document.getElementById("span-admin_pass").style.display = "inline";
+			error = true;
+		}
+		else
+		{
+			document.getElementById("span-admin_pass").style.display = "none";
+		}
+	}
+
+	if (!error)
+	{
+		document.getElementById("submituser").style.display = "none";
+	}
+
+	return(error);
+}
+<!-- ENDIF -->
+
+<!-- IF CONFIG_TEXT -->
+function show_config()
+{
+	document.getElementById('config_text').style.display = '';
+	document.getElementById('config_text_button').style.display = 'none';
+}
+document.getElementById('config_text_button').style.display = '';
+<!-- ENDIF -->
 
 // Run some stuff when the page is loading
-window.onload = function() {
-<!-- IF S_IN_SETTINGS -->
+window.onload = function()
+{
+<!-- IF S_SETTINGS -->
 	// Bind some event handler to the password fields
 	// if a user hovers over the password field we'll
 	// show the password.
@@ -101,7 +195,7 @@ window.onload = function() {
 </head>
 
 <body class="{S_CONTENT_DIRECTION}">
-
+<a id="back-top"></a>
 <div id="wrap">
 	<div id="page-header">
 		<h1>{L_QUICKINSTALL}</h1>
@@ -113,7 +207,7 @@ window.onload = function() {
 		<div id="tabs">
 			<ul>
 				<li<!-- IF S_ABOUT --> id="activetab"<!-- ENDIF -->><a href="{U_ABOUT}"><span>{L_QI_ABOUT}</span></a></li>
-				<li<!-- IF S_IN_SETTINGS --> id="activetab"<!-- ENDIF -->><a href="{U_SETTINGS}"><span>{L_SETTINGS}</span></a></li>
+				<li<!-- IF S_SETTINGS --> id="activetab"<!-- ENDIF -->><a href="{U_SETTINGS}"><span>{L_SETTINGS}</span></a></li>
 				<li<!-- IF S_MANAGE --> id="activetab"<!-- ENDIF -->><a href="{U_MANAGE}"><span>{L_QI_MANAGE}</span></a></li>
 				<li<!-- IF S_MAIN--> id="activetab"<!-- ENDIF -->><a href="{U_MAIN}"><span>{L_QI_MAIN}</span></a></li>
 			</ul>
@@ -127,12 +221,48 @@ window.onload = function() {
 				<div id="content">
 
 					<div id="menu">
-						<p><!-- IF S_IN_SETTINGS -->{L_IN_SETTINGS}<!-- ELSEIF PAGE_ABOUT -->{PAGE_ABOUT}<!-- ELSE -->&nbsp;<!-- ENDIF --></p>
-						<!-- IF PAGE_MAIN and S_HAS_FORUMS -->
+						<p><!-- IF S_SETTINGS -->{L_IN_SETTINGS}<!-- ELSEIF PAGE_ABOUT -->{PAGE_ABOUT}<!-- ELSE -->&nbsp;<!-- ENDIF --></p>
+
+						<!-- IF S_SETTINGS -->
+						<div style="position: fixed;">
+							<h5>{L_SETTINGS_SECTIONS}</h5>
+							<a href="#back-top">{L_BACK_TOP}</a><br />
+<!--
+							<a href="#profiles">{L_PROFILES}</a><br />
+							<a href="#lang-select">{L_LANG_SELECT}</a><br />
+-->
+							<a href="#db-settings">{L_DB_SETTINGS}</a><br />
+							<a href="#dir-settings">{L_DIR_URL_SETTINGS}</a><br />
+							<a href="#time-settings">{L_TIME_SETTINGS}</a><br />
+							<a href="#admin-settings">{L_ADMIN_SETTINGS}</a><br />
+							<a href="#server-settings">{L_SERVER_COOKIE_SETTINGS}</a><br />
+							<a href="#email-settings">{L_EMAIL_SETTINGS}</a><br />
+							<a href="#config-settings">{L_CONFIG_SETTINGS}</a><br />
+							<a href="#chunk-settings">{L_CHUNK_SETTINGS}</a><br />
+							<a href="#other-settings">{L_OTHER_SETTINGS}</a><br />
+							<a href="#populate-settings">{L_POPULATE_SETTINGS}</a><br />
+							<a href="#save-settings">{L_SAVE_RESTORE}</a><br />
+						</div>
+						<!-- ELSEIF S_MAIN and .board_row -->
 						<h5>{L_BOARDS_LIST}</h5>
-							<!-- BEGIN row -->
-							<a href="{row.BOARD_URL}">{row.BOARD_NAME}</a><br />
-							<!-- END row -->
+							<!-- BEGIN board_row -->
+							<a href="{board_row.BOARD_URL}">{board_row.BOARD_NAME}</a><br />
+							<!-- END board_row -->
+						<!-- ELSEIF S_ABOUT -->
+						<div style="position: fixed;">
+							<h5>{L_ABOUT_SECTIONS}</h5>
+							<a href="#back-top">{L_BACK_TOP}</a><br />
+							<a href="#about-what">{L_WHAT}</a><br />
+							<a href="#about-who_when">{L_WHO_WHEN}</a><br />
+							<a href="#about-who_else">{L_WHO_ELSE}</a><br />
+							<a href="#about-why">{L_WHY}</a><br />
+							<a href="#about-license">{L_LICENSE}</a><br />
+							<a href="#about-changelog">{L_CHANGELOG}</a><br />
+							<!-- BEGIN history -->
+							<a href="#{history.U_CHANGES}">{history.CHANGES_SINCE}</a><br />
+							<!-- END history -->
+						</div>
+
 						<!-- ENDIF -->
 					</div>
 
