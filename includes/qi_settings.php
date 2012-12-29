@@ -2,9 +2,8 @@
 /**
 *
 * @package quickinstall
-* @version $Id$
-* @copyright (c) 2010 Jari Kanerva (tumba25)
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2010 phpBB Group
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -71,6 +70,7 @@ if ($mode == 'update_settings')
 		if (!empty($profile))
 		{
 			$settings->set_profile_cookie($profile);
+			$profile = '';
 		}
 	}
 	else
@@ -110,11 +110,11 @@ $template->assign_vars(array(
 	'S_SETTINGS_FAILURE'	=> ($attempted && !$saved) ? true : false,
 
 	'ERROR'			=> $error,
-	'CONFIG_TEXT'	=> $config_text,
 
 	'U_UPDATE_SETTINGS'	=> qi::url('settings', array('mode' => 'update_settings')),
 	'U_CHOOSE_PROFILE'	=> qi::url('settings', array('mode' => 'change_profile')),
 
+	'SAVE_PROFILE'	=> $profile, //$settings->get_config('save_profile'),
 	'TABLE_PREFIX'	=> htmlspecialchars($settings->get_config('table_prefix')),
 	'SITE_NAME'		=> $settings->get_config('site_name'),
 	'SITE_DESC'		=> $settings->get_config('site_desc'),

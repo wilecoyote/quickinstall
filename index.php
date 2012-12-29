@@ -2,10 +2,8 @@
 /**
 *
 * @package quickinstall
-* @version $Id$
-* @copyright (c) 2007, 2008 eviL3
-* @copyright (c) 2010 Jari Kanerva (tumba25)
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2007 phpBB Group
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -90,7 +88,7 @@ $profile	= request_var('qi_profile', '');
 $delete_profile = (isset($_POST['delete-profile'])) ? true : false;
 
 // Let's get the config.
-$settings = new settings($profile);
+$settings = new settings($profile, $mode);
 
 // Need to set prefix here before constants.php are included.
 $table_prefix = $settings->get_config('table_prefix');
@@ -133,6 +131,7 @@ $page = (empty($error)) ? $page : 'settings';
 
 if ($settings->install || $settings->is_converted || $mode == 'update_settings' || $page == 'settings')
 {
+	$page = 'settings';
 	require($quickinstall_path . 'includes/qi_settings.' . $phpEx);
 }
 

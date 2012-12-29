@@ -2,13 +2,12 @@
 /**
 *
 * @package quickinstall
-* @version $Id$
-* @copyright (c) 2010 tumba25
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2010 phpBB Group
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-define('QI_VERSION', '1.1.8-RC1');
+define('QI_VERSION', '1.1.8-RC2');
 
 // Chunk sizes
 define('CHUNK_POST', 1000);

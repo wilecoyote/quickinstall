@@ -2,9 +2,8 @@
 /**
 *
 * @package quickinstall
-* @version $Id$
-* @copyright (c) 2012 Jari Kanerva (tumba25)
-* @license http://opensource.org/licenses/gpl-license.php GNU General Public License
+* @copyright (c) 2012 phpBB Group
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -37,7 +36,7 @@ function get_default_settings()
 		'admin_email'		=> 'qi_admin@phpbb-quickinstall.tld',
 		'server_name'		=> 'localhost',
 		'server_port'		=> '80',
-		'cookie_domain'		=> 'localhost',
+		'cookie_domain'		=> '',
 		'cookie_secure'		=> 0,
 		'board_email'		=> 'qi_board@phpbb-quickinstall.tld',
 		'email_enable'		=> 0,

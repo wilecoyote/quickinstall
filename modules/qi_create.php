@@ -2,10 +2,8 @@
 /**
 *
 * @package quickinstall
-* @version $Id$
-* @copyright (c) 2007, 2008 eviL3
-* @copyright (c) 2010 Jari Kanerva (tumba25)
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2007 phpBB Group
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -189,7 +187,7 @@ class qi_create
 			}
 			else if ($dbms == 'postgres')
 			{
-				global $sql_db, $dbhost, $dbuser, $dbpasswd, $dbport;
+				global $sql_db;
 				$error_collector = new phpbb_error_collector();
 				$error_collector->install();
 				$db_check_conn = new $sql_db();
@@ -220,6 +218,7 @@ class qi_create
 		}
 		else if ($dbms == 'postgres')
 		{
+			global $sql_db;
 			$db->sql_query('CREATE DATABASE ' . $db_prefix . $dbname);
 			$db = new $sql_db();
 			$db->sql_connect($dbhost, $dbuser, $dbpasswd, $db_prefix . $dbname, $dbport, false, false);
