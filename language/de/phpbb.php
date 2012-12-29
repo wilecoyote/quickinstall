@@ -4,8 +4,8 @@
 * phpbb [Deutsch — Du]
 *
 * @package quickinstall
-* @copyright (c) 2007, 2008 eviL3
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2007 phpBB Group
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 * Deutsche Übersetzung durch die Übersetzer-Gruppe von phpBB.de:
 * siehe docs/AUTHORS und http://www.phpbb.de/go/ubersetzerteam
