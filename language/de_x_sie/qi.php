@@ -4,7 +4,6 @@
 * qi [Deutsch — Sie]
 *
 * @package quickinstall
-* @version $Id: qi.php 562 2011-05-22 14:39:53Z philippk $
 * @copyright (c) 2007, 2008 eviL3
 * @copyright (c) 2010 Jari Kanerva (tumba25)
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -257,5 +256,3 @@ $lang = array_merge($lang, array(
 	'WHY' => 'Wieso?',
 	'WHY_EXPLAIN' => 'Wenn Sie viele Modifikationen erstellen, haben Sie (auch schon in phpBB 2) das Problem, dass Sie nicht alle Anpassungen in einer einzigen phpBB-Installation verwenden können. Daher ist am besten, wenn Sie getrennte Installationen verwenden. Allerdings ist es sehr aufwändig, die ganzen Dateien zu kopieren und jedes Mal die Installationsvorgänge durchzuführen. Um diesen Vorgang zu beschleunigen, wurde QuickInstall geboren.',
 ));
-
-?>

@@ -4,7 +4,6 @@
 * phpbb [Deutsch — Du]
 *
 * @package quickinstall
-* @version $Id: phpbb.php 549 2011-02-07 19:37:05Z philippk $
 * @copyright (c) 2007, 2008 eviL3
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -89,5 +88,3 @@ $lang = array_merge($lang, array(
 	'default_dateformat'	=> 'D j. M Y, H:i', // Mo 1. Jan 2007, 13:57
 
 ));
-
-?>
