@@ -302,7 +302,7 @@ $lang = array_merge($lang, array(
 	'YES'					=> 'Ja',
 
 	'WHAT'					=> 'Was?',
-	'WHAT_EXPLAIN'			=> 'phpBB3 QuickInstall ist ein Tool, um phpBB auf schnelle und einfache Weise installieren. Völlig überraschend... ;-)',
+	'WHAT_EXPLAIN'			=> 'phpBB3 QuickInstall ist ein Tool, um phpBB auf schnelle und einfache Weise zu installieren. Völlig überraschend... ;-)',
 	'WHO_ELSE'				=> 'Wer sonst noch?',
 	'WHO_ELSE_EXPLAIN'		=> '<ul><li>' . implode('</li><li>', array(
 		'Besonderer Dank gilt dem phpBB-Team, insbesondere dem Entwickler-Team. Dafür, dass sie ein so schönes Stück Software erstellt haben.',
@@ -312,7 +312,7 @@ $lang = array_merge($lang, array(
 		'Dank gilt der phpBB-Community auf phpBB.com, startrekguide.com und phpBBModders.net!',
 	)) . '</li></ul>',
 	'WHO_WHEN'				=> 'Wer? Wann?',
-	'WHO_WHEN_EXPLAIN'		=> 'phpBB3 QuickInstall wurden ursprünglich von Igor „igorw“ Wiedler im Sommer 2007 entwickelt und wurde von ihm teilweise im März 2008 umgeschrieben.<br />Seit März 2010 wird dieses Projekt von „tumba25“ Kanerva betreut.',
+	'WHO_WHEN_EXPLAIN'		=> 'phpBB3 QuickInstall wurde ursprünglich von Igor „igorw“ Wiedler im Sommer 2007 entwickelt und teilweise im März 2008 von ihm umgeschrieben.<br />Seit März 2010 wird dieses Projekt von Kanerva „tumba25“ betreut.',
 	'WHY'					=> 'Wieso?',
-	'WHY_EXPLAIN'			=> 'Wenn viele Modifikationen erstellt werden, hat man das Problem (auch schon unter phpBB 2), dass nicht alle Anpassungen in einer einzigen phpBB-Installation verwendet werden können. Daher ist es von Vorteil, wenn man getrennte Installationen verwenden kann. Bisher bedeutete es immer einen großen Aufwand, alle erfoderlichen Dateien zu kopieren, mehrere Datenbanken anzulegen und für jedes neue Board die Installationsvorgänge durchzuführen. Um diesen Vorgang zu beschleunigen, wurde QuickInstall geboren.',
+	'WHY_EXPLAIN'			=> 'Wenn man viele Modifikationen entwickelt, hat man oft das Problem (auch schon unter phpBB 2), dass man nicht all seine Modifikationen und Anpassungen in einer einzigen phpBB-Installation verwalten kann. Für viele Entwickler ist es daher von Vorteil, wenn sie mehrere, von einander getrennte Installationen für ihre Projekte verwalten können. Bisher war aber genau das, immer mit großen Aufwand verbunden. Man musste die benötigten Verzeichnisse und Datenbanken erstellen, alle erfoderlichen Dateien mehrfach kopieren und für jedes neue Board die entsprechenden Installationsvorgänge durchführen. Natürlich war es auch notwendig, jedes Board von Hand zu konfigurieren. Um diesen Vorgang zu beschleunigen, wurde die Idee für QuickInstall geboren.',
 ));
