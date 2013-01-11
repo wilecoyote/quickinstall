@@ -207,7 +207,7 @@ window.onload = function()
 		<div id="tabs">
 			<ul>
 				<li<!-- IF S_ABOUT --> id="activetab"<!-- ENDIF -->><a href="{U_ABOUT}"><span>{L_QI_ABOUT}</span></a></li>
-				<li<!-- IF S_SETTINGS --> id="activetab"<!-- ENDIF -->><a href="{U_SETTINGS}"><span>{L_SETTINGS}</span></a></li>
+				<li<!-- IF S_SETTINGS --> id="activetab"<!-- ENDIF -->><a href="{U_SETTINGS}"><span>{L_QI_MANAGE_PROFILES}</span></a></li>
 				<li<!-- IF S_MANAGE --> id="activetab"<!-- ENDIF -->><a href="{U_MANAGE}"><span>{L_QI_MANAGE}</span></a></li>
 				<li<!-- IF S_MAIN--> id="activetab"<!-- ENDIF -->><a href="{U_MAIN}"><span>{L_QI_MAIN}</span></a></li>
 			</ul>
@@ -243,7 +243,7 @@ window.onload = function()
 							<a href="#populate-settings">{L_POPULATE_SETTINGS}</a><br />
 							<a href="#save-settings">{L_SAVE_RESTORE}</a><br />
 						</div>
-						<!-- ELSEIF S_MAIN and .board_row -->
+						<!-- ELSEIF S_MANAGE and .board_row -->
 						<h5>{L_BOARDS_LIST}</h5>
 							<!-- BEGIN board_row -->
 							<a href="{board_row.BOARD_URL}">{board_row.BOARD_NAME}</a><br />
